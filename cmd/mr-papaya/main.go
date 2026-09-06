@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"runtime/debug"
 )
 
 const greeting = "hello, from mr papaya"
@@ -35,8 +36,16 @@ func run(args []string, out io.Writer) int {
 }
 
 func versionString() string {
-	if commit == "none" {
-		return version
+	v := version
+	// go install pkg@version builds from source without our ldflags,
+	// so fall back to the module version embedded by the go tool.
+	if v == "dev" {
+		if bi, ok := debug.ReadBuildInfo(); ok && bi.Main.Version != "" {
+			v = bi.Main.Version
+		}
 	}
-	return fmt.Sprintf("%s (commit %s, built %s)", version, commit, date)
+	if commit == "none" {
+		return v
+	}
+	return fmt.Sprintf("%s (commit %s, built %s)", v, commit, date)
 }
