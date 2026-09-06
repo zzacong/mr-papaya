@@ -1,6 +1,18 @@
 # Changelog
 
 All notable changes, generated from conventional commits.
+## [0.2.0](https://github.com/zzacong/mr-papaya/compare/v0.1.1...v0.2.0) (2026-09-06)
+
+
+### Features
+
+* add -v shorthand for --version ([d0df5f6](https://github.com/zzacong/mr-papaya/commit/d0df5f6f3c446e219704d4fbaef6affe2eb52217))
+
+
+### Bug Fixes
+
+* show usage on stderr for unknown flags ([bba891e](https://github.com/zzacong/mr-papaya/commit/bba891eccecdbe67cc3fb28f62fc1640022df260))
+
 ## [0.1.1] - 2026-09-06
 
 ### Bug Fixes
@@ -22,4 +34,3 @@ All notable changes, generated from conventional commits.
 ### Features
 
 - Minimal mr-papaya CLI with mature OSS setup ([df2c60d](https://github.com/zzacong/mr-papaya/commit/df2c60dd0c28277848e88df360b471c46b483f7f))
-
