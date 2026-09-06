@@ -13,10 +13,8 @@ Conventional commits (required for the auto-generated changelog):
 - `fix: ...` bug fix
 - `docs: ...`, `refactor: ...`, `test: ...`, `perf: ...`, `chore: ...`
 
-## Release (maintainers)
+## Release (automated)
 
-1. Merge to `main`, ensure CI is green.
-2. Regenerate the changelog: `git cliff --output CHANGELOG.md`, commit as `chore: release vX.Y.Z prep` if changed.
-3. Tag and push: `git tag vX.Y.Z && git push origin main vX.Y.Z`.
-4. GitHub Actions runs GoReleaser: cross-platform binaries, checksums, release notes.
-5. Verify: `go install github.com/zzacong/mr-papaya/cmd/mr-papaya@vX.Y.Z` and check `pkg.go.dev/github.com/zzacong/mr-papaya` updates.
+Merging to `main` is the only manual step. Release-please opens a rolling release PR (version bump + `CHANGELOG.md` from conventional commits). Merging that PR creates the tag and GitHub release; GoReleaser then publishes binaries.
+
+Setup required once: create a fine-grained PAT with Contents read/write on this repo, save it as the `RELEASE_PLEASE_TOKEN` secret. Tags created with the default `GITHUB_TOKEN` cannot trigger the GoReleaser workflow, which is why the PAT exists.

@@ -34,17 +34,13 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 ## Versioning
 
-Semver tags (`v0.1.0`). Pushing a tag triggers GoReleaser, which publishes binaries and GitHub Release notes.
+Automated with release-please: merging conventional commits to `main` opens a release PR; merging it tags `vX.Y.Z`, which triggers GoReleaser (binaries + notes).
 
 `pkg.go.dev` picks up new tags automatically. Nothing to register.
 
 ## Changelog
 
-See [CHANGELOG.md](./CHANGELOG.md), generated from conventional commits with [git-cliff](https://github.com/orhun/git-cliff):
-
-```sh
-git cliff --output CHANGELOG.md
-```
+See [CHANGELOG.md](./CHANGELOG.md), maintained by release-please from conventional commits. Do not edit by hand.
 
 ## License
 
