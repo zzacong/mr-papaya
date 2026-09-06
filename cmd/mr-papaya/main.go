@@ -24,10 +24,11 @@ func run(args []string, out io.Writer) int {
 	fs := flag.NewFlagSet("mr-papaya", flag.ContinueOnError)
 	fs.SetOutput(io.Discard)
 	showVersion := fs.Bool("version", false, "print version and exit")
+	showShortVersion := fs.Bool("v", false, "print version and exit (shorthand)")
 	if err := fs.Parse(args); err != nil {
 		return 2
 	}
-	if *showVersion {
+	if *showVersion || *showShortVersion {
 		fmt.Fprintln(out, versionString())
 		return 0
 	}

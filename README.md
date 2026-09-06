@@ -19,7 +19,7 @@ Or download a binary from [Releases](https://github.com/zzacong/mr-papaya/releas
 
 ```sh
 mr-papaya
-mr-papaya --version
+mr-papaya --version  # or -v
 ```
 
 ## Development
