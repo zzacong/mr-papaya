@@ -1,0 +1,20 @@
+version: 2
+
+builds:
+  - main: ./cmd/mr-papaya
+    binary: mr-papaya
+    goos: [linux, darwin, windows]
+    goarch: [amd64, arm64]
+    ldflags:
+      - -s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.date={{.CommitDate}}
+
+archives:
+  - formats: [tar.gz, zip]
+    name_template: "{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+
+checksum:
+  name_template: checksums.txt
+
+changelog:
+  use: github
+  sort: asc
