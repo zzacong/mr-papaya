@@ -13,7 +13,11 @@ Requires Go 1.24+.
 go install github.com/zzacong/mr-papaya/cmd/mr-papaya@latest
 ```
 
-Or download a binary from [Releases](https://github.com/zzacong/mr-papaya/releases).
+Or download a binary from [Releases](https://github.com/zzacong/mr-papaya/releases), or install without Go:
+
+```sh
+curl -sSL https://raw.githubusercontent.com/zzacong/mr-papaya/main/install.sh | sh
+```
 
 ## Usage
 

@@ -17,3 +17,5 @@ jobs:
         with:
           go-version: ${{ matrix.go-version }}
       - run: make check
+      - name: shellcheck
+        run: shellcheck install.sh
