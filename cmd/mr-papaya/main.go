@@ -17,12 +17,12 @@ var (
 )
 
 func main() {
-	os.Exit(run(os.Args[1:], os.Stdout))
+	os.Exit(run(os.Args[1:], os.Stdout, os.Stderr))
 }
 
-func run(args []string, out io.Writer) int {
+func run(args []string, out, errOut io.Writer) int {
 	fs := flag.NewFlagSet("mr-papaya", flag.ContinueOnError)
-	fs.SetOutput(io.Discard)
+	fs.SetOutput(errOut)
 	showVersion := fs.Bool("version", false, "print version and exit")
 	showShortVersion := fs.Bool("v", false, "print version and exit (shorthand)")
 	if err := fs.Parse(args); err != nil {
